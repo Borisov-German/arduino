@@ -1,26 +1,26 @@
 #include <SSI.h>
 
 // Блок описания пинов
-#define dot_pin    0 // точка для индикации секунд
-#define enc_2_pin  1 // энкодер 2
+#define enc_2_pin  0 // энкодер 2
+#define relay_pin  1 // реле
 #define enc_1_pin  2 // энкодер 1 (int0)
 #define button_pin 3 // кнопка (int1)
-#define led_1_a    4 // инд.1 A
-#define led_1_b    5 // инд.1 B
-#define led_1_c    6 // инд.1 C
-#define led_1_d    7 // инд.1 D
-#define led_1_e    8 // инд.1 E
-#define led_1_f    9 // инд.1 F
-#define led_1_g   10 // инд.1 G
-#define led_2_a   11 // инд.2 A
-#define led_2_b   12 // инд.2 B
-#define relay_pin 13 // реле LED
-//#define therm_pin A0 // терморезистор
-#define led_2_c   A1 // инд.2 C
-#define led_2_d   A2 // инд.2 D
-#define led_2_e   A3 // инд.2 E
-#define led_2_f   A4 // инд.2 F
-#define led_2_g   A5 // инд.2 G
+#define led_1_f    4 // инд.1 F
+#define led_1_g    5 // инд.1 G
+#define led_2_a    6 // инд.2 A
+#define led_2_g    7 // инд.2 G
+#define dot_pin    8 // точка для индикации секунд
+#define led_2_f    9 // инд.2 F
+#define led_2_e   10 // инд.2 E
+#define led_2_d   11 // инд.2 D
+#define led_2_c   12 // инд.2 C
+#define led_2_b   13 // инд.2 B
+#define led_1_e   A0 // инд.1 E
+#define led_1_d   A1 // инд.1 D
+#define led_1_c   A2 // инд.1 C
+#define led_1_b   A3 // инд.1 B
+#define led_1_a   A4 // инд.1 A
+#define therm_pin A5 // терморезистор
 
 #define max_min 90
 
@@ -87,10 +87,10 @@ void loop() {
       if (count_min)
         last_millis += 1000;
       else
-        last_millis = 0;  
+        last_millis = 0;
     }
     digitalWrite(dot_pin, count_sec & 1);
-  }  
+  }
   displayNumber(count_min);
   digitalWrite(relay_pin, (count_min == 0 ? LOW : HIGH));
 }
